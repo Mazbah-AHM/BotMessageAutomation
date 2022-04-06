@@ -1,0 +1,92 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Message Bot hacked</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+    <section class="ftco-section">
+        <div class="container">
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-md-12">
+                    <div class="wrapper">
+                        <div class="row justify-content-center">
+
+                            <div class="col-lg-8">
+                                <div class="contact-wrap">
+                                    <h3 class="mb-4 text-center">Welcome to Message Bot!</h3>
+                                    <!-- <h5 class="mb-4 text-center"></h5> -->
+                                    <div id="form-message-warning" class="mb-4 w-100 text-center"></div>
+                                </div>
+                                <div class="mb-4 w-100 text-center">
+                                    Once you click on start messaging please go to your desired message bar and take your cursor on the message box and do not move cursor until messaging is finished!
+                                    </div>
+                                <form method="POST" name="contactForm" class="contactForm"
+                                    action="/automate">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="number" min="1" class="form-control" name="rounds" id="name"
+                                                    placeholder="How many times you wanna messages" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+
+                                                <select class="form-control" name='time'
+                                                    placeholder="time between each message" required>
+                                                    <option class="form-data" value="5">5 seconds</option>
+                                                    <option class="form-data" value="10">10 seconds</option>
+                                                    <option class="form-data" value="15">15 seconds</option>
+                                                    <option class="form-data" value="20">20 seconds</option>
+                                                    <option class="form-data" value="30">30 seconds</option>
+                                                    <option class="form-data" value="60">60 seconds</option>
+                                                    <option class="form-data" value="180">3 minutes</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea name="text" class="form-control" id="message" cols="30"
+                                                    rows="8" placeholder="Message" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <button type="submit" value="Start Messaging" class="btn btn-primary">Start Messaging</button>
+                                                <div class="submitting"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
